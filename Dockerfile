@@ -39,6 +39,7 @@ RUN git clone --recursive https://github.com/dmlc/xgboost.git && cd xgboost && g
     /bin/bash -c "source activate mapd_ml_examples && python setup.py install" && \
     cd /mapd-ml && rm -rf xgboost
 
+EXPOSE 9090 9091 9092 9093
 EXPOSE 8888
 
 CMD bash ./utils/start_demo_notebook.sh

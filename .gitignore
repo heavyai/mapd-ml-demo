@@ -1,0 +1,8 @@
+.ipynb_checkpoints
+.tox
+.DS_Store
+*.swp
+*.map
+*.py[co]
+__pycache__
+*.bak

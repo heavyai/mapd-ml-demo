@@ -5,7 +5,7 @@ Can be run with nvidia-docker-compose. This depends on two containers:
 | Name | Use | Dockerfile location |
 | --- | --- | --- |
 | `mapd-core` | MapD Database | Defaults to open source build on Docker Hub `mapd/mapd-ce-cuda` |
-| `iml` | InteractiveML Python server | Dockerfile in top-level of `mapd-ml-demo` repo |
+| `mapd/ml` | Demo notebooks | Dockerfile in top-level of `mapd-ml-demo` repo |
 
 ## Build
 

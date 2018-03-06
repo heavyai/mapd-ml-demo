@@ -5,6 +5,7 @@ ENV MAPD_ML=mapd_ml_examples
 
 # Install dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
+            ca-certificates \
             wget \
             build-essential \
             libopenblas-dev \

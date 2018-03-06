@@ -1,5 +1,5 @@
 FROM nvidia/cuda:8.0-devel-ubuntu16.04
-LABEL maintainer "wamsi@mapd.com"
+LABEL maintainer "Wamsi Viswanath [https://www.linkedin.com/in/wamsiv]"
 
 ENV MAPD_ML=mapd_ml_examples
 

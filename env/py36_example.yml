@@ -1,0 +1,20 @@
+name: py36_example
+channels:
+- numba
+- conda-forge
+- gpuopenanalytics/label/dev
+- pymapd/label/dev
+- defaults
+dependencies:
+- python=3.6.*
+- libgdf
+- libgdf_cffi
+- cudatoolkit=8.0
+- numba>=0.35.0
+- libgcc
+- pandas=0.21.*
+- pygdf
+- pymapd
+- pip:
+  - scikit-learn>=0.19.1
+  - jupyter

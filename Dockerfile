@@ -8,9 +8,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
             wget \
             build-essential \
             libopenblas-dev \
-            bzip2 && \
+            bzip2 \
+            git && \
             apt-get remove --purge -y && \
-            apt-get install -y git && \
             rm -rf /var/lib/apt/lists/*
 
 # Install Miniconda

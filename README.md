@@ -4,7 +4,7 @@ Can be run with nvidia-docker-compose. This depends on two containers:
 
 | Name | Use | Dockerfile location |
 | --- | --- | --- |
-| `mapd-core` | MapD Database | Defaults to open source build on Docker Hub `mapd/mapd-ce-cuda` |
+| `mapd-core` | MapD Database | Defaults to Community Edition on Docker Hub `mapd/mapd-ce-cuda` |
 | `mapd/ml` | Demo notebooks | Dockerfile in top-level of `mapd-ml-demo` repo |
 
 ## Build
@@ -22,12 +22,12 @@ To build the container, run:
 If you need to move the containers to a new machine, run:
 
     docker save -o mapd-ce-cuda.tar mapd/mapd-ce-cuda
-    docker save -o mapd-iml.tar mapd/ml
+    docker save -o mapd-ml.tar mapd/ml
 
     gzip mapd-ce-cuda.tar
     gzip mapd-iml.tar
 
-You will then have files which can be moved to the new machine: `mapd-core-os-cuda.tar.gz`, `mapd-iml.tar.gz`. You will also want to grab the `docker-compose.yml` file (but probably not the `nvidia-docker-compose.yml` one).
+You will then have files which can be moved to the new machine: `mapd-ce-cuda.tar.gz`, `mapd-ml.tar.gz`. You will also want to grab the `docker-compose.yml` file (but probably not the `nvidia-docker-compose.yml` one).
 
 ## Run
 

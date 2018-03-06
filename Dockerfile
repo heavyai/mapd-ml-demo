@@ -10,10 +10,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
             libopenblas-dev \
             bzip2 && \
             apt-get remove --purge -y && \
+            apt-get install -y git && \
             rm -rf /var/lib/apt/lists/*
-
-# Install git
-RUN apt-get update && apt-get install -y git
 
 # Install Miniconda
 WORKDIR /opt/conda
@@ -39,7 +37,6 @@ RUN git clone --recursive https://github.com/dmlc/xgboost.git && cd xgboost && g
     /bin/bash -c "source activate mapd_ml_examples && python setup.py install" && \
     cd /mapd-ml && rm -rf xgboost
 
-EXPOSE 9090 9091 9092 9093
 EXPOSE 8888
 
 CMD bash ./utils/start_demo_notebook.sh

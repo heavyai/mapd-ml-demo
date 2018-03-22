@@ -15,6 +15,7 @@ dependencies:
 - pandas=0.21.*
 - pygdf
 - pymapd
+- matplotlib
 - pip:
   - scikit-learn>=0.19.1
   - jupyter

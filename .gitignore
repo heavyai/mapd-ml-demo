@@ -6,3 +6,4 @@
 *.py[co]
 __pycache__
 *.bak
+**mapdql_history.txt

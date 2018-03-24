@@ -8,7 +8,7 @@ services:
       - 9091:9091
       - 9092:9092
     volumes:
-      - ./mapd-ml-storage :/mapd-storage
+      - ./mapd-ml-storage:/mapd-storage
     ipc: host
   mapd-ml:
     image: 'mapd/ml'

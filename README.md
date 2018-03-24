@@ -25,7 +25,7 @@ If you need to move the containers to a new machine, run:
     docker save -o mapd-ml.tar mapd/ml
 
     gzip mapd-ce-cuda.tar
-    gzip mapd-iml.tar
+    gzip mapd-ml.tar
 
 You will then have files which can be moved to the new machine: `mapd-ce-cuda.tar.gz`, `mapd-ml.tar.gz`. You will also want to grab the `docker-compose.yml` file (but probably not the `nvidia-docker-compose.yml` one).
 
@@ -37,22 +37,22 @@ Uses `nvidia-docker-compose`. First make sure `nvidia-docker` is installed. Then
 
     pip install nvidia-docker-compose
 
-Next, modify the `docker-compose.yml` file to update the path containing the `/mapd-storage` volume. The default is to store this into a `mapd-storage-iml` directory in the current dir. To point elsewhere, change the line:
+Next, modify the `docker-compose.yml` file to update the path containing the `/mapd-storage` volume. The default is to store this into a `mapd-storage-ml` directory in the current dir. To point elsewhere, change the line:
 
     volumes
-      - ./mapd-storage-iml:/mapd_storage
+      - ./mapd-storage-ml:/mapd_storage
 
 to, for example:
 
     volumes
-      - /home/wamsi/mapd-storage-iml:/mapd_storage
+      - /home/wamsi/mapd-storage-ml:/mapd_storage
 
-This needs to be changed for both the `mapd-core` and the `immerse-iml` services.
+This needs to be changed for the `mapd-core` service.
 
 Import the containers if on a clean machine:
 
     docker load -i mapd-ce-cuda.tar.gz
-    docker load -i mapd-iml.tar.gz
+    docker load -i mapd-ml.tar.gz
 
 ### Running
 

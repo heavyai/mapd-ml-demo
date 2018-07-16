@@ -31,6 +31,10 @@ RUN conda env create -n $MAPD_ML -f /mapd-ml/env/py36_example.yml
 # Configure environment
 ARG XGBOOST_COMMIT="332b26d"
 
+# Add h2o4gpu
+RUN wget https://s3.amazonaws.com/h2o-release/h2o4gpu/releases/stable/ai/h2o/h2o4gpu/0.2-nccl-cuda8/h2o4gpu-0.2.0-cp36-cp36m-linux_x86_64.whl && \
+    pip install --upgrade pip && pip install h2o4gpu-0.2.0-cp36-cp36m-linux_x86_64.whl && rm -rf h2o4gpu-0.2.0-cp36-cp36m-linux_x86_64.whl
+
 # Add xgboost
 RUN git clone --recursive https://github.com/dmlc/xgboost.git && cd xgboost && git checkout $XGBOOST_COMMIT && \
     make PLUGIN_UPDATER_GPU=ON && \

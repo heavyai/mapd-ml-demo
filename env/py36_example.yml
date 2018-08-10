@@ -9,7 +9,7 @@ dependencies:
 - python=3.6.*
 - libgdf
 - libgdf_cffi
-- cudatoolkit=8.0
+- cudatoolkit
 - numba>=0.35.0
 - libgcc
 - pandas=0.21.*

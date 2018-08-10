@@ -1,4 +1,4 @@
-FROM nvidia/cuda:8.0-devel-ubuntu16.04
+FROM nvidia/cuda:9.0-devel-ubuntu16.04
 LABEL maintainer "Wamsi Viswanath [https://www.linkedin.com/in/wamsiv]"
 
 ENV MAPD_ML=mapd_ml_examples
@@ -28,19 +28,20 @@ WORKDIR /mapd-ml
 # Create Environment
 RUN conda env create -n $MAPD_ML -f /mapd-ml/env/py36_example.yml
 
+# Commenting out XGBoost installation temporarily
 # Configure environment
-ARG XGBOOST_COMMIT="332b26d"
+# ARG XGBOOST_COMMIT="332b26d"
 
 # Add h2o4gpu
 RUN wget https://s3.amazonaws.com/h2o-release/h2o4gpu/releases/stable/ai/h2o/h2o4gpu/0.2-nccl-cuda8/h2o4gpu-0.2.0-cp36-cp36m-linux_x86_64.whl && \
     pip install --upgrade pip && pip install h2o4gpu-0.2.0-cp36-cp36m-linux_x86_64.whl && rm -rf h2o4gpu-0.2.0-cp36-cp36m-linux_x86_64.whl
 
 # Add xgboost
-RUN git clone --recursive https://github.com/dmlc/xgboost.git && cd xgboost && git checkout $XGBOOST_COMMIT && \
-    make PLUGIN_UPDATER_GPU=ON && \
-    cd python-package && \
-    /bin/bash -c "source activate mapd_ml_examples && python setup.py install" && \
-    cd /mapd-ml && rm -rf xgboost
+# RUN git clone --recursive https://github.com/dmlc/xgboost.git && cd xgboost && git checkout $XGBOOST_COMMIT && \
+#     make PLUGIN_UPDATER_GPU=ON && \
+#     cd python-package && \
+#     /bin/bash -c "source activate mapd_ml_examples && python setup.py install" && \
+#     cd /mapd-ml && rm -rf xgboost
 
 EXPOSE 8888
 

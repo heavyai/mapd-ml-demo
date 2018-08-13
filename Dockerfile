@@ -17,7 +17,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Install Miniconda
 WORKDIR /opt/conda
 
-RUN wget --no-check-certificate https://repo.continuum.io/miniconda/Miniconda3-4.3.21-Linux-x86_64.sh -O /opt/conda/miniconda3.sh
+RUN wget --no-check-certificate https://repo.continuum.io/miniconda/Miniconda3-4.5.4-Linux-x86_64.sh -O /opt/conda/miniconda3.sh
 RUN bash /opt/conda/miniconda3.sh -b -p /opt/conda/Miniconda3
 ENV PATH=$PATH:/opt/conda/Miniconda3/bin
 
@@ -26,22 +26,11 @@ COPY . /mapd-ml
 WORKDIR /mapd-ml
 
 # Create Environment
-RUN conda env create -n $MAPD_ML -f /mapd-ml/env/py36_example.yml
-
-# Commenting out XGBoost installation temporarily
-# Configure environment
-# ARG XGBOOST_COMMIT="332b26d"
+RUN conda update conda && conda env create -n $MAPD_ML -f /mapd-ml/env/py36_example.yml
 
 # Add h2o4gpu
 RUN wget https://s3.amazonaws.com/h2o-release/h2o4gpu/releases/stable/ai/h2o/h2o4gpu/0.2-nccl-cuda8/h2o4gpu-0.2.0-cp36-cp36m-linux_x86_64.whl && \
     pip install --upgrade pip && pip install h2o4gpu-0.2.0-cp36-cp36m-linux_x86_64.whl && rm -rf h2o4gpu-0.2.0-cp36-cp36m-linux_x86_64.whl
-
-# Add xgboost
-# RUN git clone --recursive https://github.com/dmlc/xgboost.git && cd xgboost && git checkout $XGBOOST_COMMIT && \
-#     make PLUGIN_UPDATER_GPU=ON && \
-#     cd python-package && \
-#     /bin/bash -c "source activate mapd_ml_examples && python setup.py install" && \
-#     cd /mapd-ml && rm -rf xgboost
 
 EXPOSE 8888
 

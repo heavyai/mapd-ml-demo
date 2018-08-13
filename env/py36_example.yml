@@ -7,8 +7,8 @@ channels:
 - defaults
 dependencies:
 - python=3.6.*
-- libgdf
-- libgdf_cffi
+- libgdf=0.1.0a1.dev
+- libgdf_cffi=0.1.0a1.dev
 - cudatoolkit
 - numba>=0.35.0
 - libgcc
@@ -20,3 +20,4 @@ dependencies:
   - scikit-learn>=0.19.1
   - jupyter
   - graphistry
+  - xgboost

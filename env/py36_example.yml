@@ -7,17 +7,17 @@ channels:
 - defaults
 dependencies:
 - python=3.6.*
-- libgdf
-- libgdf_cffi
+- libgdf=0.1.0a3
+- libgdf_cffi=0.1.0a3
 - cudatoolkit
 - numba>=0.35.0
 - libgcc
-- pandas=0.21.*
-- pygdf
+- pandas
+- pygdf=0.1.0a3
 - pymapd
-- matplotlib
 - pip:
   - scikit-learn>=0.19.1
   - jupyter
   - graphistry
   - xgboost
+  - matplotlib

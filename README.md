@@ -1,3 +1,7 @@
+> [!IMPORTANT]  
+> As of 05/27/2026 this project has been deprecated. mapd-ml-demo is not maintained anymore.
+>
+
 # mapd-ml-demo
 
 Can be run with nvidia-docker-compose. This depends on two containers:
